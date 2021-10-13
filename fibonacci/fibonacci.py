@@ -1,14 +1,12 @@
-from typing import Dict
-from functools import lru_cache
-
-memo: Dict[int, int] = {0: 0, 1: 1}  # base cases
-
-@lru_cache(maxsize=None)
 def fibonacci(n: int) -> int:
-    if n < 2:
-        return n
+    if n == 0: return n
+    last: int = 0
+    next: int = 1
 
-    return fibonacci(n - 1) + fibonacci(n - 2)
+    for _ in range(1, n):
+        last, next = next, last + next
+
+    return next
 
 
 if __name__ == "__main__":
