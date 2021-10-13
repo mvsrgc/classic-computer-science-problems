@@ -1,11 +1,15 @@
-def fibonacci(n):
-    if n == 0:
-        return 0
-    if n == 1:
-        return 1
+from typing import Dict
 
-    return fibonacci(n - 1) + fibonacci(n - 2)
+memo: Dict[int, int] = {0: 0, 1: 1}  # base cases
+
+
+def fibonacci(n: int) -> int:
+    if not n in memo:
+        memo[n] = fibonacci(n - 1) + fibonacci(n - 2)
+
+    return memo[n]
+
 
 if __name__ == "__main__":
-    for i in range(15):
+    for i in range(50):
         print(fibonacci(i))
