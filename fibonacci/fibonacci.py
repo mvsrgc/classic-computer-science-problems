@@ -2,10 +2,6 @@ from typing import Generator
 
 
 def fibonacci(n: int) -> Generator[int, None, None]:
-    yield 0
-    if n > 0:
-        yield 1
-
     last: int = 0
     next: int = 1
 
